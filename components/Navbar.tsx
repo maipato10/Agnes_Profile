@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore, useCallback } from "react";
+import { useState, useEffect, useSyncExternalStore, useCallback } from "react";
 
 const links = [
   { href: "#about", label: "About" },
@@ -39,10 +39,36 @@ function useIsDark() {
   );
 }
 
+function useActiveSection() {
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const ids = links.map((l) => l.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(`#${entry.target.id}`);
+          }
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  return active;
+}
+
 export default function Navbar() {
   const dark = useIsDark();
   const [open, setOpen] = useState(false);
   const scrolled = useScrolled();
+  const activeSection = useActiveSection();
 
   const toggleDark = () => {
     const next = !dark;
@@ -60,7 +86,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-lg font-bold text-primary">
+          <a href="#" className="text-lg font-bold gradient-text">
             AM
           </a>
 
@@ -70,15 +96,22 @@ export default function Navbar() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm text-muted hover:text-primary transition-colors"
+                className={`text-sm transition-colors relative ${
+                  activeSection === l.href
+                    ? "text-primary font-medium"
+                    : "text-muted hover:text-primary"
+                }`}
               >
                 {l.label}
+                {activeSection === l.href && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 gradient-line" />
+                )}
               </a>
             ))}
             <button
               onClick={toggleDark}
               aria-label="Toggle dark mode"
-              className="p-2 rounded-lg text-muted hover:text-primary hover:bg-surface-alt transition-colors"
+              className="p-2 rounded-lg text-muted hover:text-primary hover:bg-surface-alt transition-all hover:rotate-12"
             >
               {dark ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -156,7 +189,11 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block text-sm text-muted hover:text-primary transition-colors"
+                className={`block text-sm transition-colors ${
+                  activeSection === l.href
+                    ? "text-primary font-medium"
+                    : "text-muted hover:text-primary"
+                }`}
               >
                 {l.label}
               </a>

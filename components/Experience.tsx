@@ -1,3 +1,5 @@
+import ScrollReveal from "./ScrollReveal";
+
 const roles = [
   {
     title: "Intermediate Software Developer",
@@ -74,50 +76,54 @@ const roles = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
+    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 section-gradient-light">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-foreground mb-2">Experience</h2>
-        <div className="w-16 h-1 bg-primary rounded mb-12" />
+        <ScrollReveal>
+          <h2 className="text-3xl font-bold text-foreground mb-2">Experience</h2>
+          <div className="gradient-line w-16 mb-12" />
+        </ScrollReveal>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-border" />
+          {/* Timeline line with gradient */}
+          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary-light to-border" />
 
           <div className="space-y-10">
             {roles.map((role, i) => (
-              <div key={i} className="relative pl-12 md:pl-16">
-                {/* Dot */}
-                <div
-                  className={`absolute left-2.5 md:left-4.5 top-1.5 w-3 h-3 rounded-full border-2 ${
-                    role.current
-                      ? "bg-primary border-primary"
-                      : "bg-background border-primary"
-                  }`}
-                />
+              <ScrollReveal key={i} delay={i * 100}>
+                <div className="relative pl-12 md:pl-16">
+                  {/* Dot */}
+                  <div
+                    className={`absolute left-2.5 md:left-4.5 top-1.5 w-3 h-3 rounded-full border-2 ${
+                      role.current
+                        ? "bg-primary border-primary animate-pulse-glow"
+                        : "bg-background border-primary"
+                    }`}
+                  />
 
-                <div className="bg-background rounded-xl p-6 border border-border hover:border-primary/40 transition-colors">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground">
-                        {role.title}
-                      </h3>
-                      <p className="text-primary font-medium">{role.company}</p>
-                      <p className="text-sm text-muted">{role.type}</p>
+                  <div className="card-glow bg-background rounded-xl p-6 border border-border">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">
+                          {role.title}
+                        </h3>
+                        <p className="text-primary font-medium">{role.company}</p>
+                        <p className="text-sm text-muted">{role.type}</p>
+                      </div>
+                      <span className="text-sm text-muted whitespace-nowrap">
+                        {role.period}
+                      </span>
                     </div>
-                    <span className="text-sm text-muted whitespace-nowrap">
-                      {role.period}
-                    </span>
+                    <ul className="space-y-2">
+                      {role.bullets.map((b, j) => (
+                        <li key={j} className="text-muted text-sm flex gap-2">
+                          <span className="text-primary mt-1.5 shrink-0">▸</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2">
-                    {role.bullets.map((b, j) => (
-                      <li key={j} className="text-muted text-sm flex gap-2">
-                        <span className="text-primary mt-1.5 shrink-0">▸</span>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
