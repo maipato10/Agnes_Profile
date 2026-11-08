@@ -3,43 +3,49 @@ import ScrollReveal from "./ScrollReveal";
 const projects = [
   {
     name: "Superparent",
+    role: "Intermediate Developer · 2026 – Present",
     description:
-      "Built and maintain the web and mobile apps for an AI-powered family platform. Integrated LLM solutions that extract dates, deadlines and tasks from school emails, WhatsApp messages and PDF flyers, turning them into calendar events, to-dos and reminders. Run ongoing QA on the AI assistant — comparing inputs against outputs, classifying errors and tracking accuracy over time.",
-    tags: ["React", "Next.js", "React Native", "TypeScript", "Tailwind CSS", "AI/LLM"],
+      "An AI-powered family organisation platform that helps parents manage their children's school communications. I build and maintain both the web and mobile applications, and integrate the LLM solutions that power the core product — an AI assistant that reads school emails, WhatsApp messages and PDF flyers, then extracts dates, deadlines and action items and turns them into shared calendar events, to-do lists and reminders. I also run production QA on the AI output: comparing what comes in against what gets saved, classifying errors like duplicates, wrong dates and missed requests, and tracking accuracy over time to feed improvements back into the development cycle.",
+    tags: ["React", "Next.js", "React Native", "TypeScript", "Tailwind CSS", "AI/LLM", "Convex"],
     industry: "AI · Family Tech",
   },
   {
     name: "MWEB",
+    role: "Developer at Britehouse Mobility · 2021 – 2025",
     description:
-      "Developed the mobile application for one of South Africa's largest internet service providers. Built customer-facing features including account management, usage dashboards and service request flows, optimised for both iOS and Android across a wide range of devices.",
+      "Mobile application for one of South Africa's most recognised internet service providers, serving millions of broadband customers. I developed customer-facing features including account management screens, data usage dashboards, service request flows and in-app notifications. Built with React Native for cross-platform delivery on iOS and Android, with a focus on performance across a wide range of device capabilities and network conditions.",
     tags: ["React Native", "TypeScript", "Tailwind CSS"],
     industry: "Telecoms",
   },
   {
     name: "Webafrica",
+    role: "Developer at Britehouse Mobility · 2021 – 2025",
     description:
-      "Built the mobile application for a national fibre and LTE provider. Delivered features for service activation, connectivity monitoring and support ticketing, with a focus on performance and responsive UI across mobile platforms.",
+      "Mobile application for a national fibre and LTE internet service provider. I delivered features for service activation, real-time connectivity monitoring, package upgrades and support ticketing. Worked closely with the design team to build a clean, intuitive UI that guides users through complex ISP processes — from checking coverage and signing up to managing their account and troubleshooting connection issues.",
     tags: ["React Native", "TypeScript", "Tailwind CSS"],
     industry: "Telecoms",
   },
   {
     name: "SuperSport",
+    role: "Developer at Britehouse Mobility · 2021 – 2025",
     description:
-      "Contributed front-end development to the website for Africa's leading sports broadcaster. Worked on live scores, fixtures, match pages and sports content feeds — building responsive, high-performance UI for a platform serving millions of fans.",
+      "Website for the pan-African sports broadcaster — the home of live sport in Africa. I contributed front-end development to the public-facing site, working on live score components, match pages, fixture schedules, league tables and editorial sports content feeds. Built responsive, high-performance UI designed to handle traffic spikes during major sporting events, ensuring fans get real-time updates without lag.",
     tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     industry: "Sports Media",
   },
   {
     name: "AECI",
+    role: "Developer at Britehouse Mobility · 2021 – 2025",
     description:
-      "Developed the corporate website for the JSE-listed chemicals, mining explosives and agricultural group. Built responsive page templates, investor relations sections and content-managed layouts to present the group's divisions and sustainability reporting.",
+      "Corporate website for the JSE-listed chemicals, mining explosives and agricultural group. I built responsive page templates, an investor relations hub with downloadable financial reports, and content-managed layouts that present the group's multiple divisions — from mining services to plant health. Delivered a clean, professional design that reflects a 100-year-old industrial brand while meeting modern web standards for accessibility and performance.",
     tags: ["React", "TypeScript", "Tailwind CSS"],
     industry: "Chemicals · Mining",
   },
   {
     name: "Grindrod",
+    role: "Developer at Britehouse Mobility · 2021 – 2025",
     description:
-      "Built the corporate website for the JSE-listed freight logistics, ports and financial services group. Delivered multi-division navigation, interactive service pages and investor content — presenting a complex group structure in a clean, accessible layout.",
+      "Corporate website for the JSE-listed freight logistics, ports and financial services group. I delivered multi-division navigation, interactive service pages, port location maps and investor content. The challenge was presenting a complex group with operations across shipping, rail, ports and banking in a single cohesive site — with clear information architecture and fast page loads despite rich content.",
     tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     industry: "Logistics · Ports",
   },
@@ -64,7 +70,7 @@ export default function Projects() {
           {projects.map((project, i) => (
             <ScrollReveal key={project.name} delay={i * 100} direction="scale">
               <div className="group card-glow bg-surface rounded-xl p-6 border border-border hover:-translate-y-2 transition-all duration-300 h-full">
-                <div className="flex items-start justify-between mb-3">
+                <div className="flex items-start justify-between mb-1">
                   <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                     {project.name}
                   </h3>
@@ -72,6 +78,7 @@ export default function Projects() {
                     {project.industry}
                   </span>
                 </div>
+                <p className="text-xs text-primary mb-3">{project.role}</p>
                 <p className="text-muted text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>
