@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  --surface: #f9fafb;
+  --surface-alt: #f3f4f6;
+  --muted: #6b7280;
+  --border-c: #e5e7eb;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --fg: #f3f4f6;
+  --surface: #111111;
+  --surface-alt: #1a1a1a;
+  --muted: #9ca3af;
+  --border-c: #262626;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
