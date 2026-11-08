@@ -4,42 +4,42 @@ const projects = [
   {
     name: "Superparent",
     description:
-      "AI-powered family organisation platform that turns school emails, WhatsApp messages and flyers into a shared calendar, to-do list and reminders.",
+      "Built and maintain the web and mobile apps for an AI-powered family platform. Integrated LLM solutions that extract dates, deadlines and tasks from school emails, WhatsApp messages and PDF flyers, turning them into calendar events, to-dos and reminders. Run ongoing QA on the AI assistant — comparing inputs against outputs, classifying errors and tracking accuracy over time.",
     tags: ["React", "Next.js", "React Native", "TypeScript", "Tailwind CSS", "AI/LLM"],
     industry: "AI · Family Tech",
   },
   {
     name: "MWEB",
     description:
-      "Website for one of South Africa's best-known internet service providers, serving millions of broadband customers.",
-    tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      "Developed the mobile application for one of South Africa's largest internet service providers. Built customer-facing features including account management, usage dashboards and service request flows, optimised for both iOS and Android across a wide range of devices.",
+    tags: ["React Native", "TypeScript", "Tailwind CSS"],
     industry: "Telecoms",
   },
   {
     name: "Webafrica",
     description:
-      "Website for a national fibre and LTE internet service provider delivering high-speed connectivity across South Africa.",
-    tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      "Built the mobile application for a national fibre and LTE provider. Delivered features for service activation, connectivity monitoring and support ticketing, with a focus on performance and responsive UI across mobile platforms.",
+    tags: ["React Native", "TypeScript", "Tailwind CSS"],
     industry: "Telecoms",
   },
   {
     name: "SuperSport",
     description:
-      "Website for the pan-African sports broadcaster, delivering live scores, fixtures and sports content to fans.",
+      "Contributed front-end development to the website for Africa's leading sports broadcaster. Worked on live scores, fixtures, match pages and sports content feeds — building responsive, high-performance UI for a platform serving millions of fans.",
     tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     industry: "Sports Media",
   },
   {
     name: "AECI",
     description:
-      "Corporate website for the JSE-listed chemicals, mining explosives and agricultural group.",
+      "Developed the corporate website for the JSE-listed chemicals, mining explosives and agricultural group. Built responsive page templates, investor relations sections and content-managed layouts to present the group's divisions and sustainability reporting.",
     tags: ["React", "TypeScript", "Tailwind CSS"],
     industry: "Chemicals · Mining",
   },
   {
     name: "Grindrod",
     description:
-      "Corporate website for the JSE-listed freight logistics, ports and financial services group.",
+      "Built the corporate website for the JSE-listed freight logistics, ports and financial services group. Delivered multi-division navigation, interactive service pages and investor content — presenting a complex group structure in a clean, accessible layout.",
     tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     industry: "Logistics · Ports",
   },
@@ -55,7 +55,7 @@ export default function Projects() {
           </h2>
           <div className="gradient-line w-16 mb-4" />
           <p className="text-muted mb-12 max-w-2xl">
-            Production websites delivered for major South African brands at
+            Production websites and mobile applications delivered for major South African brands at
             Britehouse Mobility (2021–2025) and Superparent (2026–present).
           </p>
         </ScrollReveal>
